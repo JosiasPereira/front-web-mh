@@ -6,7 +6,9 @@ import history from '../history';
 import Login from '../Pages/Login';
 import CreateReceipt from '../Pages/Receipt/Create';
 import ListReceipt from '../Pages/Receipt/List';
+import LogOut from '../Pages/LogOut';
 import auth from '../services/auth';
+
 
 const Routes = () =>{
     
@@ -29,7 +31,7 @@ const Routes = () =>{
             <PrivateRoute exact path="/" component={() => <h1>oi</h1>}/>
             <PrivateRoute exact path="/create-receipt" component={CreateReceipt}/>
             <PrivateRoute exact path="/list-receipt" component={ListReceipt}/>
-            
+            <PrivateRoute exact path="/logout" component={LogOut}/>
             <Redirect to="/notFound"  />   
         </Switch>
     );

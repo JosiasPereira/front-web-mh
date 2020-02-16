@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width : 500px;
+    width : 600px;
     height: auto;
     min-height: 400px;
     border-radius: 4px;
@@ -14,26 +14,22 @@ export const Container = styled.div`
     box-shadow: 3px 3px 10px rgba(0,0,0, 0.5);
 `;
 
-export const Title = styled.div`
-    color : ${props => props.theme.colors.text.green} ;
-    
+export const Title = styled.text`
+    color : ${props => props.theme.colors.text.green} ;    
     font-size: ${props => props.fontSize}px;
     margin-bottom : 30px;
     font-weight : 500;
 
 `;
 
-export const Logo = styled.img`
-    height: auto;
-    width: 250px;
+export const ImagePreview = styled.img`
+   
+    max-width: 500px;
+    max-height: 500px;
 `;
 
-export const TextBtnLogin = styled.div`
+export const TextBtnSubmit = styled.text`
   color: ${props => props.theme.colors.text.primary};
   font-size: 16px;
 `;
 
-export const TextBtnSignUp = styled.div`
-  color: ${props => props.theme.colors.text.primary};
-  font-size: 14px;
-`;

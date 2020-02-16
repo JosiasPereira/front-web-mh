@@ -14,7 +14,7 @@ export const Container = styled.div`
     box-shadow: 3px 3px 10px rgba(0,0,0, 0.5);
 `;
 
-export const Title = styled.text`
+export const Title = styled.div`
     color : ${props => props.theme.colors.text.primary} ;
     font-size: 22px;
     margin-bottom : 30px;
@@ -26,12 +26,12 @@ export const Logo = styled.img`
     width: 250px;
 `;
 
-export const TextBtnLogin = styled.text`
+export const TextBtnLogin = styled.div`
   color: ${props => props.theme.colors.text.primary};
   font-size: 16px;
 `;
 
-export const TextBtnSignUp = styled.text`
+export const TextBtnSignUp = styled.div`
   color: ${props => props.theme.colors.text.primary};
   font-size: 14px;
 `;

@@ -22,20 +22,7 @@ const SUPPORTED_FORMATS = [
   "image/gif",
   "image/png"
 ];
-/**
- * file: Yup.mixed()
-    .required("Um comprovante deve ser anexado")
-    .test(
-      "fileSize",
-      "Arquivo muito grande",
-      value => value && value.size <= FILE_SIZE
-    )
-    .test(
-      "fileFormat",
-      "Formato inválido",
-      value => value && SUPPORTED_FORMATS.includes(value.type)
-    )
- */
+
 const ReceiptSchema = Yup.object().shape({
   value: Yup.string()
     .required('O valor deve ser informado'),
@@ -48,7 +35,7 @@ const ReceiptSchema = Yup.object().shape({
     .required("Um comprovante deve ser anexado")    
 });
 
-export default function Create() {
+export default function Create({loading, opened, close}) {
   
   const [ imagePreview, setImagePreview] = useState(null);
   const [ image, setImage] = useState(null);
@@ -83,7 +70,7 @@ export default function Create() {
       if (response.data){
         console.log(response.data);
           
-        histore.push('/list-receipt');
+        histore.push('/');
         toast.success('Salvo com sucesso!')
       }
     } catch (error) {
@@ -100,9 +87,9 @@ export default function Create() {
   }
   
   return (
-    <Container>
-        
-      
+    <Modal opened={opened} close={close}>
+      <>
+              
         <Title fontSize={35} >
             Novo comprovante
         </Title>
@@ -172,8 +159,8 @@ export default function Create() {
         
         
                 
-      
-    </Container>
+      </>
+    </Modal>
     
   );
 }

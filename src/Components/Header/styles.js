@@ -15,7 +15,9 @@ export const FixedWrapper = styled.header`
   left: 0;
   width: 100%;
   height: 6rem;  
-  z-index: 5
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ContainerLogo = styled.div`  

@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  padding:  ${(props) => (props.inputType == 'file' ? '5px 8px' : '15px 20px')};
+  padding:  ${(props) => (props.inputType === 'file' ? '5px 8px' : '15px 20px')};
   width: 100%;
   background-color:  ${props => props.theme.colors.secondary} ;
   color: ${props => props.theme.colors.text.primary};

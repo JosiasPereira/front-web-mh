@@ -3,8 +3,9 @@ import { Formik, Field, Form } from 'formik';
 import logo from '../../assets/logo2.png';
 import * as Yup from 'yup';
 import {toast} from 'react-toastify';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions';
 import histore from '../../history';
-
 import { Container, Logo, Title,TextBtnLogin, TextBtnSignUp } from './styles';
 import api from '../../services/api';
 
@@ -25,7 +26,7 @@ const LoginSchema = Yup.object().shape({
     .min(6, 'Muito curto'),
 });
 
-export default function Login() {
+const Login = function ({login}) {
   const [ showSignUp, setShowSignUp ] = useState(false);
   
   async function handleSubmit(values){
@@ -35,9 +36,9 @@ export default function Login() {
       const response = await api.post('login',values);
       if (response.data.token){
         console.log(response.data);
-        await localStorage.setItem('@mh-token', response.data.token);
-        api.defaults.headers.Authorization = 'Bearer '+response.data.token;
-        
+        await localStorage.setItem('@mh-token', response.data.token);    
+        login(response.data.token);
+
         histore.push('/');
       }
     } catch (error) {
@@ -103,4 +104,20 @@ export default function Login() {
     </Container>
     
   );
-}
+};
+
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+  login : actions.login
+};
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
+
+
+

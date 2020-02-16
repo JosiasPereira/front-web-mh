@@ -42,11 +42,11 @@ export default createGlobalStyle`
     --shadow: ${props => props.theme.colors.shadow};
 
     @media ${props => props.theme.mediaQueries.small} {
-      font-size: 60%;
+      
     }
 
     @media ${props => props.theme.mediaQueries.smallest} {
-      font-size: 55%;
+      
     }
   }
 

@@ -17,7 +17,6 @@ export const WrappedModal = styled.div`
   max-width: 550px;
   box-shadow: 0 0.5rem 3.5em rgba(0,0,0,0.2);
   border-radius: 1rem;
-  background-color: #111727;
   background-color: ${props => props.theme.colors.dark1};
   transition: all 0.2s;
 `;

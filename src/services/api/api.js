@@ -2,13 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import auth from '../auth';
 import {Redirect} from 'react-router-dom'
+import {URL_SERVER} from '../../utils/consts';
+import history from '../../history';
+import {toast} from 'react-toastify';
+
 const api = axios.create({
   //baseURL : 'http://williamestrela.herokuapp.com/'
-  baseURL : 'http://localhost:3333/'
+  baseURL : URL_SERVER+'/'
 })
 
 api.interceptors.request.use(async config => {
-  const token = await auth.isAuth();
+  const token = await auth.token();
   if (token) {
     config.headers.Authorization = 'Bearer ' +token;
   }
@@ -18,14 +22,21 @@ api.interceptors.request.use(async config => {
 
 
 api.interceptors.response.use( 
-  response => {    
-      return response
-  },
-  error => {
-    if(error.response.status && error.response.status == 401){      
+  response => {   
+
+    if(response.status && response.status == 401){      
       return <Redirect to='/login' />
     }
-    console.log('fora do if erro de rede')
+    return response
+  },
+  error => {
+    
+    if(error.response.status && error.response.status == 401){      
+      history.push('/login');
+      toast.warn('Efetue seu login para acessar a página solicitada.')
+      return error
+    }
+    
     
   }
 );
