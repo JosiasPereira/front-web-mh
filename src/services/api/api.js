@@ -30,13 +30,14 @@ api.interceptors.response.use(
     return response
   },
   error => {
-    
+    return error;
+    /*
     if(error.response.status && error.response.status == 401){      
       history.push('/login');
       toast.warn('Efetue seu login para acessar a página solicitada.')
       return error
     }
-    
+    */
     
   }
 );
