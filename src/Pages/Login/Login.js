@@ -72,7 +72,7 @@ const Login = function ({login}) {
         >
           <StyledForm>
             <Field              
-              placeholder="Digite sua e-mail..."
+              placeholder="Digite seu e-mail..."
               textError="senha errada"
               type="text"
               name="email"

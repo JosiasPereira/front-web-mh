@@ -1,1 +1,1 @@
-export const URL_SERVER = "http://localhost:3333";
+export const URL_SERVER = "http://williamestrela.herokuapp.com";
