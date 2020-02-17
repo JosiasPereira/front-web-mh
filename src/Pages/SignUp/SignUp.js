@@ -43,9 +43,11 @@ export default function SignUp({loading, opened, close}) {
     try {
       const response = await api.post('user', values);
 
-      if (response){
+      if (response.status==200){
         toast.success('Cadastro realizado!');
         hadleClose();
+      }else{
+        toast.error('Erro ao finalizar cadastro.');
       }
     } catch (error) {
       toast.error('Erro ao finalizar cadastro.');
