@@ -11,8 +11,7 @@ const NavItems  = function ({clicked, isAuth}) {
         { isAuth ? (
           <Ul>            
             <NavItem clicked={clicked} link='/list-receipt'>Comprovantes</NavItem>
-            <NavItem clicked={clicked} link='/'>Home</NavItem>
-            <NavItem clicked={clicked} link='/profile'>Perfil</NavItem>
+            <NavItem clicked={clicked} link='/'>Home</NavItem>            
             <NavItem clicked={clicked} link='/logout'>Sair</NavItem> 
           </Ul>
         ) : (

@@ -28,7 +28,7 @@ const Routes = () =>{
     const routes =(
         <Switch>
             <Route exact path="/login" component={Login} />  
-            <PrivateRoute exact path="/" component={() => <h1>oi</h1>}/>
+            <PrivateRoute exact path="/" component={() => <h1 color="fff">PayGuard</h1>}/>
             <PrivateRoute exact path="/create-receipt" component={CreateReceipt}/>
             <PrivateRoute exact path="/list-receipt" component={ListReceipt}/>
             <PrivateRoute exact path="/logout" component={LogOut}/>

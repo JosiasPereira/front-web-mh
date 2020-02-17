@@ -40,12 +40,17 @@ export default function SignUp({loading, opened, close}) {
   async function handleSubmit(values, formkHekpers){  
     values.type = 'U';
 
-    const response = await api.post('user', values);
+    try {
+      const response = await api.post('user', values);
 
-    if (response){
-      toast.success('Cadastro realizado!');
-      hadleClose();
+      if (response){
+        toast.success('Cadastro realizado!');
+        hadleClose();
+      }
+    } catch (error) {
+      toast.error('Erro ao finalizar cadastro.');
     }
+    
   }
   function hadleClose(){
     close();
