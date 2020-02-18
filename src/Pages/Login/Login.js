@@ -42,7 +42,12 @@ const Login = function ({login}) {
         histore.push('/');
       }
     } catch (error) {
-      toast.error('Erro ao realizar login. Tente novamente!')
+      if (error.response.status == 401){
+        toast.error(error.response.data.validate) 
+      }else{
+        toast.error('Erro ao realizar login. Tente novamente!')
+      }
+      
     }
     
   }

@@ -30,7 +30,7 @@ api.interceptors.response.use(
     return response
   },
   error => {
-    return error;
+    return Promise.reject(error);
     /*
     if(error.response.status && error.response.status == 401){      
       history.push('/login');
@@ -41,4 +41,5 @@ api.interceptors.response.use(
     
   }
 );
+
 export default api

@@ -47,10 +47,20 @@ export default function SignUp({loading, opened, close}) {
         toast.success('Cadastro realizado!');
         hadleClose();
       }else{
-        toast.error('Erro ao finalizar cadastro.');
+
+        
+        
+        if (response.status == 400){
+          toast.error(response.data.validate) 
+        }
+        //toast.error('Erro ao finalizar cadastro.');
       }
     } catch (error) {
-      toast.error('Erro ao finalizar cadastro.');
+     
+      if (error.response.status == 400){
+        toast.error(error.response.data.validate[0].message) 
+      }
+      //toast.error('Erro ao finalizar cadastro.');
     }
     
   }
